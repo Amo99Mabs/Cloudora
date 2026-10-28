@@ -26,16 +26,16 @@ if response.status_code == 200:
     weather = data["weather"][0]["description"]
 
     # Weather emoji
-if "cloud" in weather.lower():
-    emoji = "☁️"
-elif "rain" in weather.lower():
-    emoji = "🌧️"
-elif "clear" in weather.lower():
-    emoji = "☀️"
-elif "thunder" in weather.lower():
-    emoji = "⛈️"
-else:
-    emoji = "🌍"
+    if "cloud" in weather.lower():
+       emoji = "☁️"
+    elif "rain" in weather.lower():
+       emoji = "🌧️"
+    elif "clear" in weather.lower():
+       emoji = "☀️"
+    elif "thunder" in weather.lower():
+       emoji = "⛈️"
+    else:
+       emoji = "🌍"
 
 
     print("\n-------- WEATHER REPORT --------")
@@ -43,5 +43,6 @@ else:
     print(f"🌡️ Temperature: {temperature}°C")
     print(f"💧 Humidity: {humidity}%")
     print(f"💨 Wind Speed: {wind_speed} m/s")
-else:
+    print(f"🌤️ Weather: {weather} {emoji}")
+else: 
     print("❌ City not found.")
